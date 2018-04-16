@@ -1,17 +1,15 @@
 import React from 'react';
 import fetchJsonp from "fetch-jsonp";
 import SortRadioButton from './SortRadioButton';
-import DropDown from './DropDown'
-import {Container, Col, Row, Button, Modal, ModalBody, ModalHeader, Card, CardImg, CardBody, CardText, CardSubtitle } from 'reactstrap';
+import {Col, Row, Button, Modal, ModalBody, ModalHeader, Card, CardImg, CardBody, CardText, CardSubtitle } from 'reactstrap';
 
 
 class Albums extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      artists: [],
-      sort: 'all',
-      lyricsSelected: 'all'
+      tracks: [],
+      sort: 'all'
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -25,7 +23,7 @@ class Albums extends React.Component {
     })
     .then(data => {
 
-      this.setState( {artists: data.albums.data} );
+      this.setState( {tracks: data.albums.data} );
       console.log(data);
     })
     .catch(error => {
@@ -51,21 +49,23 @@ class Albums extends React.Component {
   }
 
   render() {
-    console.log(this.state.artists);
-    const list = this.state.artists.map( (u, i) => {
+    console.log("Sort type: " + this.state.sort);
+    console.log(this.state.tracks);
+    const list = this.state.tracks
+    .sort(( a , b ) => {
+      if (this.state.sort === 'all') return 0;
+      if(a.artist.name < b.artist.name) return -1;
+      if(a.artist.name > b.artist.name) return 1;
+      return 0;
+    })
+    .map( (u, i) => {
       return <Album key={i} image={u.cover_medium} name={u.title} artist={u.artist.name} largeImage={u.cover_big} position={u.position} lyrics={u.explicit_lyrics} />;
     });
-    const data = this.state.sort === 'all' ? this.state.artists : [].concat(this.state.artists)
-    .sort(( a , b ) => {
-      if(a.artist < b.artist) return -1;
-      if(a.artist > b.artist) return 1;
-      return 0;
-    });
+
 
     return (
       <section className="section">
         <SortRadioButton handleChange={this.handleChange} checked={this.state.sort} />
-        <DropDown options={['all','explicit','clean']} name="lyricsSelected" handleChange={this.handleChange} label="Filter by Lyric Type" selected={this.state.lyricsSelected} />
 
         <h1 className="topTen">Top 10 Albums</h1>
         <Row>

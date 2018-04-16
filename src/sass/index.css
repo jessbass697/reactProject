@@ -49,17 +49,17 @@ ul.header li a {
   color: #f60102; }
 
 .buttonClass {
-  font-family: "Maven Pro", sans-serif;
-  background-color: #9d7c87;
-  border: 1px solid #9d7c87;
+  font-family: "Maven Pro", sans-serif !important;
+  background-color: #9d7c87 !important;
+  border: 1px solid #9d7c87 !important;
   -webkit-transition: color 0.3s ease;
   -moz-transition: color 0.3s ease;
   -ms-transition: color 0.3s ease;
   -o-transition: color 0.3s ease;
   transition: color 0.3s ease; }
   .buttonClass:hover {
-    background-color: #432b33;
-    border: 1px solid #432b33; }
+    background-color: #432b33 !important;
+    border: 1px solid #432b33 !important; }
 
 .topTen {
   font-family: "Arya", sans-serif;
@@ -68,12 +68,6 @@ ul.header li a {
   color: #432b33;
   padding-top: 35px;
   padding-left: 60px; }
-
-.footer {
-  height: 50px;
-  background: #555660;
-  position: relative;
-  top: 10px; }
 
 .largeImage {
   width: 300px; }
@@ -135,3 +129,15 @@ select {
   color: #555660;
   position: relative;
   left: 90px; }
+
+.input {
+  font-family: "Maven Pro", sans-serif;
+  font-size: 18px;
+  position: relative;
+  left: 90px; }
+
+.footer {
+  height: 50px;
+  background: #555660;
+  position: relative;
+  top: 100px; }

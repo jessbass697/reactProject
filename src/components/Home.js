@@ -1,8 +1,7 @@
 import React from 'react';
 import fetchJsonp from "fetch-jsonp";
-import {Col, Button, Row, Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Modal, ModalBody, ModalHeader } from 'reactstrap';
+import {Col, Button, Row, Card, CardImg, CardBody, CardSubtitle, CardText, Modal, ModalBody, ModalHeader } from 'reactstrap';
 import SortRadioButton from "./SortRadioButton";
-import DropDown from "./DropDown";
 import "../sass/index.css";
 
 
@@ -10,9 +9,8 @@ class Home extends React.Component {
   constructor() {
     super();
     this.state = {
-      artists: [],
-      sort: 'all',
-      lyricsSelected: 'all'
+      tracks: [],
+      sort: 'all'
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -26,7 +24,7 @@ class Home extends React.Component {
     })
     .then(data => {
 
-      this.setState( {artists: data.tracks.data} );
+      this.setState( {tracks: data.tracks.data} );
       console.log(data);
     })
     .catch(error => {
@@ -52,24 +50,24 @@ class Home extends React.Component {
   }
 
   render() {
-    console.log(this.state.artists);
-    const list = this.state.artists.map( (u, i) => {
+    console.log("Sort type: " + this.state.sort);
+    console.log(this.state.tracks);
+    const list = this.state.tracks
+    .sort(( a , b ) => {
+      if (this.state.sort === 'all') return 0;
+      if(a.artist.name < b.artist.name) return -1;
+      if(a.artist.name > b.artist.name) return 1;
+      return 0;
+    })
+    .map((u, i) => {
       return <User key={i} image={u.album.cover_medium} largeImage={u.album.cover_big} albumTitle={u.album.title} songName={u.title} artist={u.artist.name}
               position={u.position} lyrics={u.explicit_lyrics}/>;
-    });
-    const data = this.state.sort === 'all' ? this.state.artists : [].concat(this.state.artists)
-    .sort(( a , b ) => {
-      if(a.artist < b.artist) return -1;
-      if(a.artist > b.artist) return 1;
-      return 0;
     });
 
 
     return (
       <section className="section">
         <SortRadioButton handleChange={this.handleChange} checked={this.state.sort} />
-        <DropDown options={['all','explicit','clean']} name="lyricsSelected" handleChange={this.handleChange} label="Filter by Lyric Type" selected={this.state.lyricsSelected} />
-
         <h1 className="topTen">Top 10 Singles</h1>
         <Row>
           {list}
@@ -100,9 +98,6 @@ class User extends React.Component {
             <Card>
               <CardImg className="image-fluid albumImage" src={this.props.image} />
               <CardBody className="cardBody">
-                <CardTitle className="cTitle">
-                  { this.props.songName > 10 ? this.props.songName.slice(11) : ''}
-                </CardTitle>
                 <CardSubtitle className="cardSub">{this.props.artist} </CardSubtitle>
                 <CardText className="explicit">
                     { this.props.lyrics === true ? 'Explicit' : 'Clean'}

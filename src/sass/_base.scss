@@ -2,7 +2,7 @@
 @import 'variables';
 
 body {
-  background: $body;
+  background: $body !important;
 }
 
 ul.header li {
@@ -37,7 +37,7 @@ ul.header li a {
 }
 
 .albumImage {
-  width:200px;
+  width:200px !important;
 }
 
 .wrapper {
@@ -59,13 +59,13 @@ ul.header li a {
 }
 
 .buttonClass {
-  font-family:$trackFont;
-  background-color:$buttonColor;
-  border: 1px solid $buttonColor;
+  font-family:$trackFont !important;
+  background-color:$buttonColor !important;
+  border: 1px solid $buttonColor !important;
   @include transition(color .3s ease);
   &:hover {
-    background-color:$buttonHover;
-    border: 1px solid $buttonHover;
+    background-color:$buttonHover !important;
+    border: 1px solid $buttonHover !important;
   }
 }
 
@@ -78,12 +78,6 @@ ul.header li a {
   padding-left:60px;
 }
 
-.footer {
-  height:50px;
-  background:$navHead;
-  position:relative;
-  top:10px;
-}
 
 .largeImage {
   width:300px;
@@ -155,4 +149,18 @@ select {
   color:$navHead;
   position:relative;
   left:90px;
+}
+
+.input {
+  font-family:$trackFont;
+  font-size:18px;
+  position:relative;
+  left:90px;
+}
+
+.footer {
+  height:50px;
+  background:$navHead;
+  position:relative;
+  top:100px;
 }

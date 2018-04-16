@@ -11,16 +11,12 @@ class SortRadioButton extends React.Component {
           <div className="field is-narrow">
             <div className="control">
               <label className="radio">
-                <input type="radio" name="all" value="all" checked={this.props.checked === 'all'} onChange={this.props.handleChange} />
+                <input type="radio" name="sort" value="all" checked={this.props.checked === 'all'} onChange={this.props.handleChange} />
                 All
               </label>
               <label className="radio">
                 <input type="radio" name="sort" value="artist" checked={this.props.checked === 'artist'} onChange={this.props.handleChange} />
                 Artist
-              </label>
-              <label className="radio">
-                <input type="radio" name="sort" value="track" checked={this.props.checked === 'track'} onChange={this.props.handleChange} />
-                Track
               </label>
             </div>
           </div>
