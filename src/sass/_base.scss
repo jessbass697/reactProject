@@ -1,0 +1,158 @@
+@import 'mixins';
+@import 'variables';
+
+body {
+  background: $body;
+}
+
+ul.header li {
+  display: inline;
+  list-style-type:none;
+  margin:0;
+}
+
+ul.header {
+  background-color:$navHead;
+  padding:0;
+}
+
+ul.header li a {
+  color: $cardBody;
+  font-family:$trackFont;
+  text-decoration:none;
+  padding:20px;
+  display:inline-block;
+}
+
+.content li {
+  margin-bottom:10px;
+}
+
+.active {
+  background-color:$buttonHover;
+}
+
+.cardBody {
+  background: $cardBody;
+}
+
+.albumImage {
+  width:200px;
+}
+
+.wrapper {
+  padding-left:56px;
+  padding-top:20px;
+}
+
+.cardSub, .cTitle {
+  font-family:$trackFont;
+  color:$buttonHover;
+}
+
+.explicit {
+  padding-top:2px;
+  font-size:12px;
+  font-family:$topTenFont;
+  letter-spacing:1px;
+  color:$explicit;
+}
+
+.buttonClass {
+  font-family:$trackFont;
+  background-color:$buttonColor;
+  border: 1px solid $buttonColor;
+  @include transition(color .3s ease);
+  &:hover {
+    background-color:$buttonHover;
+    border: 1px solid $buttonHover;
+  }
+}
+
+.topTen {
+  font-family:$topTenFont;
+  letter-spacing:1px;
+  font-size:40px;
+  color:$buttonHover;
+  padding-top:35px;
+  padding-left:60px;
+}
+
+.footer {
+  height:50px;
+  background:$navHead;
+  position:relative;
+  top:10px;
+}
+
+.largeImage {
+  width:300px;
+}
+
+.titleModal {
+  padding-top:5px;
+}
+
+.modalHead {
+  background:$body;
+  font-family:$topTenFont;
+  color:$buttonHover;
+  letter-spacing:1px;
+}
+
+.mBody {
+  background:$cardBody;
+}
+
+.titleModal {
+  font-family:$trackFont;
+  font-size:20px;
+  color:$buttonHover;
+}
+
+.artistModal {
+  font-family:$trackFont;
+  font-size:18px;
+  color:$buttonHover;
+}
+
+.ranking {
+  font-family:$trackFont;
+  font-size:15px;
+  color:$buttonHover;
+  font-weight:bold;
+}
+
+.artistSort{
+  padding-left:80px;
+  font-family: $topTenFont;
+  font-size:30px;
+  color:$buttonHover;
+  font-weight:bold;
+}
+
+.radio {
+  padding-left:10px;
+  font-family:$trackFont;
+  font-size:20px;
+  color:$buttonHover;
+  position:relative;
+  left:80px;
+}
+
+label {
+  padding-left:80px;
+  font-family: $topTenFont;
+  font-size:30px;
+  color:$buttonHover;
+  font-weight:bold;
+}
+
+select {
+  background: $cardBody;
+  font-family:$trackFont;
+  font-size:18px;
+  color:$navHead;
+  position:relative;
+  left:90px;
+}
