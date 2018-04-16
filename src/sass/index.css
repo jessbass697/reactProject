@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css?family=Chicle");
+@import url("https://fonts.googleapis.com/css?family=Yatra+One");
+@import url("https://fonts.googleapis.com/css?family=Arya");
+@import url("https://fonts.googleapis.com/css?family=Maven+Pro");
+body {
+  background: #b9a1a8 !important; }
+
+ul.header li {
+  display: inline;
+  list-style-type: none;
+  margin: 0; }
+
+ul.header {
+  background-color: #555660;
+  padding: 0; }
+
+ul.header li a {
+  color: #e7e7e8;
+  font-family: "Maven Pro", sans-serif;
+  text-decoration: none;
+  padding: 20px;
+  display: inline-block; }
+
+.content li {
+  margin-bottom: 10px; }
+
+.active {
+  background-color: #432b33; }
+
+.cardBody {
+  background: #e7e7e8; }
+
+.albumImage {
+  width: 200px !important; }
+
+.wrapper {
+  padding-left: 56px;
+  padding-top: 20px; }
+
+.cardSub, .cTitle {
+  font-family: "Maven Pro", sans-serif;
+  color: #432b33; }
+
+.explicit {
+  padding-top: 2px;
+  font-size: 12px;
+  font-family: "Arya", sans-serif;
+  letter-spacing: 1px;
+  color: #f60102; }
+
+.buttonClass {
+  font-family: "Maven Pro", sans-serif;
+  background-color: #9d7c87;
+  border: 1px solid #9d7c87;
+  -webkit-transition: color 0.3s ease;
+  -moz-transition: color 0.3s ease;
+  -ms-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  transition: color 0.3s ease; }
+  .buttonClass:hover {
+    background-color: #432b33;
+    border: 1px solid #432b33; }
+
+.topTen {
+  font-family: "Arya", sans-serif;
+  letter-spacing: 1px;
+  font-size: 40px;
+  color: #432b33;
+  padding-top: 35px;
+  padding-left: 60px; }
+
+.footer {
+  height: 50px;
+  background: #555660;
+  position: relative;
+  top: 10px; }
+
+.largeImage {
+  width: 300px; }
+
+.titleModal {
+  padding-top: 5px; }
+
+.modalHead {
+  background: #b9a1a8;
+  font-family: "Arya", sans-serif;
+  color: #432b33;
+  letter-spacing: 1px; }
+
+.mBody {
+  background: #e7e7e8; }
+
+.titleModal {
+  font-family: "Maven Pro", sans-serif;
+  font-size: 20px;
+  color: #432b33; }
+
+.artistModal {
+  font-family: "Maven Pro", sans-serif;
+  font-size: 18px;
+  color: #432b33; }
+
+.ranking {
+  font-family: "Maven Pro", sans-serif;
+  font-size: 15px;
+  color: #432b33;
+  font-weight: bold; }
+
+.artistSort {
+  padding-left: 80px;
+  font-family: "Arya", sans-serif;
+  font-size: 30px;
+  color: #432b33;
+  font-weight: bold; }
+
+.radio {
+  padding-left: 10px;
+  font-family: "Maven Pro", sans-serif;
+  font-size: 20px;
+  color: #432b33;
+  position: relative;
+  left: 80px; }
+
+label {
+  padding-left: 80px;
+  font-family: "Arya", sans-serif;
+  font-size: 30px;
+  color: #432b33;
+  font-weight: bold; }
+
+select {
+  background: #e7e7e8;
+  font-family: "Maven Pro", sans-serif;
+  font-size: 18px;
+  color: #555660;
+  position: relative;
+  left: 90px; }

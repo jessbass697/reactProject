@@ -3,6 +3,7 @@ import fetchJsonp from "fetch-jsonp";
 import {Col, Button, Row, Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Modal, ModalBody, ModalHeader } from 'reactstrap';
 import SortRadioButton from "./SortRadioButton";
 import DropDown from "./DropDown";
+import "../sass/index.css";
 
 
 class Home extends React.Component {
