@@ -9,7 +9,7 @@ class Search extends React.Component {
   constructor() {
     super();
     this.state = {
-      charts: [],
+      artists: [],
       sort: 'all',
       searchText: ''
     };
@@ -19,17 +19,17 @@ class Search extends React.Component {
 
   componentWillMount() {
     //get chart tracks, albums & artists from API and store info in setState
-    fetch('https://api.deezer.com/search?q=artist&output=jsonp')
+    fetch('https://api.deezer.com/search?q=artist')
     .then(response => {
       if(response.ok) return response.json();
       throw new Error('Request failed.');
     })
     .then(data => {
-      const charts = data.data.map(chart => {
+      const artists = data.data.map(artist => {
         console.log(data);
-        return {name : chart.name, image: chart.picture_medium};
+        return {name: artist.artist.name, image: artist.artist.picture_medium};
       });
-      this.setState({charts: charts});
+      this.setState({artists: artists});
     })
     .catch(error => {
       console.log(error)
@@ -54,28 +54,27 @@ class Search extends React.Component {
   }
 
   render() {
-    const data = this.state.sort === 'all' ? this.state.charts : [].concat(this.state.charts)
+    const data = this.state.sort === 'all' ? this.state.artist : [].concat(this.state.artists)
     .sort((a, b) => {
       if(a.name < b.name) return -1;
       if(a.name > b.name) return 1;
       return 0;
     });
 
-    let artistList = data.map( chart => {
-      const nameMatch = chart.name.startsWith(this.state.searchText);
+    /*let artistList = data.map( artist => {
+      const nameMatch = artist.name.startsWith(this.state.searchText);
       return (nameMatch) ? (
-        <ChartCard name={chart.name} image={chart.image} key={chart.name + chart.image} />
+        <ChartCard name={artist.name} image={artist.image} key={artist.name + artist.image} />
       ) : null;
-    });
+    });*/
 
     return (
       <section className="section">
         <SortRadioButton handleChange={this.handleChange} checked={this.state.sort}/>
         <LabelledInput name="searchText" label="Search by name" value={this.state.searchText} handleChange={this.handleChange} placeholder={"e.g. eminem"} />
-        <Row>
+        {/*<Row>
           {artistList}
-        </Row>
-        <div className="footer"></div>
+        </Row>*/}
       </section>
     );
 

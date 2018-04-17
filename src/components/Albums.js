@@ -1,7 +1,8 @@
 import React from 'react';
 import fetchJsonp from "fetch-jsonp";
 import SortRadioButton from './SortRadioButton';
-import {Col, Row, Button, Modal, ModalBody, ModalHeader, Card, CardImg, CardBody, CardText, CardSubtitle } from 'reactstrap';
+import ChartCard from './ChartCard';
+import { Col, Row } from 'reactstrap';
 
 
 class Albums extends React.Component {
@@ -95,25 +96,7 @@ class Album extends React.Component {
     return (
         <div className="wrapper">
           <Col>
-            <Card>
-              <CardImg className="image-fluid albumImage" src={this.props.image} />
-              <CardBody className="cardBody">
-                <CardSubtitle className="cardSub">{this.props.artist}</CardSubtitle>
-                <CardText className="explicit">
-                  { this.props.lyrics === true ? 'Explicit' : 'Clean'}
-                </CardText>
-                <Button color="danger" className="buttonClass" onClick={this.toggle}>More Info!</Button>
-                <Modal isOpen={this.state.modal} toggle={this.toggle} className="modalClass">
-                  <ModalHeader className="modalHead" toggle={this.toggle}> Album Information</ModalHeader>
-                  <ModalBody>
-                    <img className="image-fluid largeImage" src={this.props.largeImage} />
-                    <p className="titleModal">{this.props.name}</p>
-                    <p className="artistModal">{this.props.artist}</p>
-                    <p className="ranking">Number {this.props.position}</p>
-                  </ModalBody>
-                </Modal>
-              </CardBody>
-            </Card>
+            <ChartCard image={this.props.image} artist={this.props.artist} lyrics={this.props.lyrics} largeImage={this.props.largeImage} name={this.props.name} position={this.props.position}  />
           </Col>
         </div>
     );
