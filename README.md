@@ -138,7 +138,7 @@ Now that map has pulled the information I want to use from the state.  I used **
     if(a.artist.name < b.artist.name) return -1;
     if(a.artist.name > b.artist.name) return 1;
     return 0;
-    ```
+  ```
   I have also used conditionals to determine if the lyrics within the songs or albums are clean or explicit.  I did this using If/Else.  If/Else within React looks like ? for if and a : for else.
 
   `{ this.props.lyrics === true ? 'Explicit' : 'Clean' }`
