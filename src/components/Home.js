@@ -53,6 +53,7 @@ class Home extends React.Component {
   render() {
     console.log("Sort type: " + this.state.sort);
     console.log(this.state.tracks);
+    //const list = this.state.sort === 'all' ? this.state.tracks : [].concat(this.state.tracks)
     const list = this.state.tracks
     .sort(( a , b ) => {
       if (this.state.sort === 'all') return 0;
@@ -80,19 +81,18 @@ class Home extends React.Component {
 }
 
 class User extends React.Component {
-
   render(){
     return (
-        <div className="wrapper">
-          <Col>
-            <ChartCard image={this.props.image}
-              artist={this.props.artist}
-              lyrics={this.props.lyrics}
-              largeImage={this.props.largeImage}
-              songName={this.props.songName}
-              position={this.props.position}  />
-          </Col>
-        </div>
+      <div className="wrapper">
+        <Col>
+          <ChartCard image={this.props.image}
+            artist={this.props.artist}
+            lyrics={this.props.lyrics}
+            largeImage={this.props.largeImage}
+            songName={this.props.songName}
+            position={this.props.position}  />
+        </Col>
+      </div>
     );
   }
 }

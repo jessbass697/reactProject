@@ -63,40 +63,30 @@ class Albums extends React.Component {
       return <Album key={i} image={u.cover_medium} name={u.title} artist={u.artist.name} largeImage={u.cover_big} position={u.position} lyrics={u.explicit_lyrics} />;
     });
 
-
     return (
       <section className="section">
         <SortRadioButton handleChange={this.handleChange} checked={this.state.sort} />
-
         <h1 className="topTen">Top 10 Albums</h1>
         <Row>
           {list}
         </Row>
         <div className="footer"></div>
-        </section>
+      </section>
     );
   }
 }
 
 class Album extends React.Component {
-  constructor(props) {
-      super(props);
-      this.state = {
-        modal: this.props.modal
-      };
-    this.toggle = this.toggle.bind(this);
-  }
-
-  toggle() {
-    this.setState((prevState) => ({
-      modal: !prevState.modal
-    }));
-  }
   render(){
     return (
         <div className="wrapper">
           <Col>
-            <ChartCard image={this.props.image} artist={this.props.artist} lyrics={this.props.lyrics} largeImage={this.props.largeImage} name={this.props.name} position={this.props.position}  />
+            <ChartCard image={this.props.image}
+              artist={this.props.artist}
+              lyrics={this.props.lyrics}
+              largeImage={this.props.largeImage}
+              name={this.props.name}
+              position={this.props.position}  />
           </Col>
         </div>
     );

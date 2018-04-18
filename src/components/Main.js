@@ -14,17 +14,16 @@ import Search from "./Search";
               <li><NavLink to="/albums">Albums</NavLink></li>
               <li><NavLink to="/search">Search</NavLink></li>
             </ul>
-          <div className="content">
-            <Route exact path="/" component={Home} />
-            <Route path="/albums" component={Albums} />
-            <Route path="/search" component={Search} />
+            <div className="content">
+              <Route exact path="/" component={Home} />
+              <Route path="/albums" component={Albums} />
+              <Route path="/search" component={Search} />
+            </div>
           </div>
-        </div>
-      </BrowserRouter>
-
-    );
+        </BrowserRouter>
+      );
+    }
   }
-}
 
 
 

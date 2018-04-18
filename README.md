@@ -33,6 +33,8 @@ For this CA, I accessed the Deezer music API and fetched both the singles chart 
 
 ![alt text](src/images/reactWireframe2.jpg)
 
+![alt text](src/images/reactWireframe3.jpg)
+
 ## Description
 
 This React Application makes use of **imports** to import other components that have been created to be used repeatedly within the application.  Imports within this application also import React and Reactstrap components that the application would like to make use of, for example, Rows, Columns, Modals etc.  This application also required fetchJsonp to be installed using NPM and imported into the main page components, this fetchJsonp was required for the Deezer API to work correctly.  
@@ -118,7 +120,7 @@ Once the information from the API is successfully fetched and stored within the 
   position={u.position} lyrics={u.explicit_lyrics}/>;
 });
 ```
-Now that map has pulled the information I want to use from the state.  I used **props** to implement them within my application.
+Now that map has pulled the information I want to use from the state.  I used **props** to pass the information into my components.
 
 ```
 <ChartCard image={this.props.image}
@@ -128,7 +130,7 @@ Now that map has pulled the information I want to use from the state.  I used **
   songName={this.props.songName}
   position={this.props.position}  />
   ```
-  The ChartCard component takes in the above mapped information and implements it within a ReactStrap Card.  The props parameters help customize how the mapped information is used.  Using props I am able to wrap the information in a class or place it within a ReactStrap Card.  I can also customize the style of the information with the use of props.
+  The ChartCard component takes in the above mapped information and implements it within a ReactStrap Card.  The props parameters help customize how the mapped information is used.  When using props I am able to wrap the information in a class or place it within a ReactStrap Card.  I can also customize the style of the information with the use of props.
 
   **Conditionals** are used in this application for the 'sort' feature.  'if' statements are to set the order of the tracks before the sort and afterward:
 
@@ -202,15 +204,32 @@ The package file to work these installations looks like this:
 ```
 Once this process was completed I restarted my react app and within the SASS folder I had now had a index.css file.  Within index.js, I changed my styling import from SCSS to CSS.  I then redeployed my code to Firebase and it was successfully styled.
 
+**PropTypes** were used inside the ChartCard.js component, it is a safety feature for future users to let them know what data type they should be applying when adding new props. If the user implements the wrong data type, React will throw an error.
+
+Below are the PropTypes I have implemented for my ChartCard:
+
+```
+ChartCard.propTypes = {
+  image: PropTypes.string,
+  artist: PropTypes.string,
+  lyrics: PropTypes.string,
+  largeImage: PropTypes.string,
+  songName: PropTypes.string,
+  position: PropTypes.integer
+};
+```
+
 This CA introduced me to React and the JSX language which I enjoyed using. I learned the importance of seperating components and got more comfortable using an SCSS language in a different format then I am used to.  
 
 The SPA itself runs smoothly without glitches both locally and on the Firebase server.  I am happy with how the modal runs also, it runs smoothly even when the browser is small.  ReactStrap was a nice feature to work with, it brings a nice responsive flow to the application.  
 
 I did not use ReactStrap for the navigation as I could not integrate it with the BrowserRouter.  It kept failing when tested so I resorted to using just the BrowserRouter.  
 
+The extra functionality like Sort and Search caused me a lot of issues.  I have managed to get sort half working, it successfully sorts but does not return the original array, this is because the original array is being destroyed when the sort is performed.  I tried making a copy of the original array and sorting that but that code caused a lot of errors.  I have that code within the Home.js component commented out.
 
+Search was another feature I attempted to add and again caused me a lot of issues.  I feel like it was the Deezer API that was causing the problems with the Search rather than my code.  I did finally manage to get something to appear but it was appearing before the search was performed and making the page look messy.  I have left my search code within the Search.js component as an attempt to get search functionality.
 
-
+I managed to get my React App launched to Firebase and the link to that can be found below:
 
 #### Firebase URL
 https://music-lounge-ffd4f.firebaseapp.com
