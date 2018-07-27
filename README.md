@@ -1,6 +1,6 @@
 # Deezer API React Application
 
-For this CA, I accessed the Deezer music API and fetched both the singles chart and the albums chart, as well as setting up an Artist Search page to search and fetch the entire API's list of artists.
+Accesses the Deezer music API and fetches both the singles chart and the albums chart, as well as setting up an Artist Search page to search and fetch the entire API's list of artists.
 
 #### To download, and run this application:
 
